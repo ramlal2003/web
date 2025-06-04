@@ -94,8 +94,8 @@ def image_to_svg(input_path, output_path, min_contour_len=10, stroke_color="#FFF
             # Format points for SVG path data
             points_str = " ".join([f"{x},{y}" for x, y in contour])
             # Create path data: Move to first point, then Line to subsequent points
-            # Use 'L' command for lines between points
-            path_data = f"M {contour[0][0]},{contour[0][1]} L {points_str[len(f"{contour[0][0]},{contour[0][1]} "): ]}"
+            first_point = f"{contour[0][0]},{contour[0][1]}"
+            path_data = f"M {first_point} L {points_str[len(first_point + ' '):]}"
             
             # Use 'Z' to close the path if it seems closed
             # A simple check: if the start and end points are the same or very close
