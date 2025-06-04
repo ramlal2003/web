@@ -1,0 +1,7 @@
+flask==3.0.0
+pillow==10.2.0
+numpy==1.26.4
+svgwrite==1.4.3
+opencv-python==4.9.0.80
+gunicorn==21.2.0
+cairosvg==2.7.1

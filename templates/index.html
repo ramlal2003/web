@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image to SVG Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Image to SVG Converter</h1>
+    <div class="container">
+        <div class="image-container">
+            <div class="upload-section">
+                <h2>Upload Image</h2>
+                <form id="uploadForm" enctype="multipart/form-data">
+                    <input type="file" name="file" accept="image/*" required>
+                </form>
+            </div>
+            <div id="result">
+                <div class="loading">Processing image...</div>
+                <img id="svgOutput" src="" alt="SVG Output" style="display: none;">
+            </div>
+        </div>
+        <div class="controls">
+            <h2>Adjust Parameters</h2>
+            <div class="slider-container">
+                <label for="minContourLen">Minimum Contour Length:</label>
+                <input type="range" id="minContourLen" class="slider" min="1" max="100" value="10">
+                <span id="minContourLenValue" class="slider-value">10</span>
+            </div>
+            <div class="slider-container">
+                <label for="strokeWidth">Stroke Width:</label>
+                <input type="range" id="strokeWidth" class="slider" min="0.1" max="5" step="0.1" value="1.0">
+                <span id="strokeWidthValue" class="slider-value">1.0</span>
+            </div>
+            <div class="slider-container">
+                <label for="thresholdBlockSize">Threshold Block Size:</label>
+                <input type="range" id="thresholdBlockSize" class="slider" min="3" max="99" step="2" value="11">
+                <span id="thresholdBlockSizeValue" class="slider-value">11</span>
+            </div>
+            <div class="slider-container">
+                <label for="thresholdC">Threshold C:</label>
+                <input type="range" id="thresholdC" class="slider" min="0" max="20" value="2">
+                <span id="thresholdCValue" class="slider-value">2</span>
+            </div>
+            <div class="color-container">
+                <label for="strokeColor">Stroke Color:</label>
+                <input type="color" id="strokeColor" value="#FFFFFF">
+            </div>
+            <div class="color-container">
+                <label for="backgroundColor">Background Color:</label>
+                <input type="color" id="backgroundColor" value="#000000">
+            </div>
+            <div class="download-buttons">
+                <button id="downloadSvgButton" class="download-button">Download SVG</button>
+                <button id="downloadPngButton" class="download-button">Download PNG</button>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html> 
